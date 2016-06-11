@@ -5,11 +5,25 @@ def codeGRS(x, v, a):
         f += x[i] * X**i #les coefficients du polynome sont les lettres du message
     return [i*f(j) for i, j in zip(v, a)] #ev(f)
 
+def Li(i, a):
+    L = R.one()
+    for j in range(n):
+        if i != j:
+            L *= X - a[j]
+    return L 
+
 def decodeGRS(y, v, a):
     '''Decode le message y encodé avec GRS'''
     temp = [i/j for i, j in zip(y, v)]
-    points = [(i, j) for i, j in zip(a, temp)] #les points sur lesquels interpoler
-    f = R.lagrange_polynomial(points) #interpolation en utilisant les polynomes de Lagrange
+    
+    f = R.zero()
+    for i in range(n):
+        L = Li(i, a)
+        f += (temp[i]*L)/L(a[i])
+    
+    #points = [(i, j) for i, j in zip(a, temp)] #les points sur lesquels interpoler
+    #f = R.lagrange_polynomial(points) #interpolation en utilisant les polynomes de Lagrange
+    
     return f.coefficients() #on retrouve les coefficients du polynome
 
 def errTrans(y, nbErr):
