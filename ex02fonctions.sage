@@ -6,6 +6,7 @@ def codeGRS(x, v, a):
     return [i*f(j) for i, j in zip(v, a)] #ev(f)
 
 def Li(i, a):
+    '''Calcule le polynome de Lagrange Li(X)'''
     L = R.one()
     for j in range(n):
         if i != j:

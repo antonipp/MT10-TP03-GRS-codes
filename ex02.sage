@@ -17,9 +17,9 @@ for i in range(n):
 #Generation de a
 a = []
 for i in range(n):
-    c = C[randint(0, len(C))]
+    c = C[randint(1, len(C)-1)]
     while c in a:
-        c = C[randint(0, len(C)-1)] #generer un element unique
+        c = C[randint(1, len(C)-1)] #generer un element unique
     a.append(c)
 
 y = codeGRS(x, v, a)
