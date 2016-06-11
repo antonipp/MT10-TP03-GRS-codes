@@ -4,3 +4,4 @@ load("ex03fonctions.sage")
 r = n - k
 
 S = syndrome(yp, a, v)
+sigma, omega = clef(S)

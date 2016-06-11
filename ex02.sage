@@ -5,7 +5,7 @@ Fq = GF(q, name='b')
 R.<X> = Fq['X']
 C = Fq.list() #caracteres
 
-n, k = 4, 3
+n, k = 7, 3
 
 x = [C[9], C[20], C[11]] #message
 
