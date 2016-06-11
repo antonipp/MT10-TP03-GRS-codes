@@ -1,11 +1,11 @@
 load("ex02fonctions.sage")
 
 q = 2**5
-Fq = GF(q, name='a')
+Fq = GF(q, name='b')
 R.<X> = Fq['X']
 C = Fq.list() #caracteres
 
-n, k = 3, 3
+n, k = 4, 3
 
 x = [C[9], C[20], C[11]] #message
 
@@ -24,4 +24,4 @@ for i in range(n):
 
 y = codeGRS(x, v, a)
 x2 = decodeGRS(y, v, a)
-
+yp = errTrans(y, 1)
