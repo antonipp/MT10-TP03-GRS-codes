@@ -24,3 +24,13 @@ def clef(S):
 
     return sigmat/sigmat(0), omegat/sigmat(0)
 
+def erreur(sigma, omega, a, v):
+    #ui = 1/(vi Li(ai))
+    e = [0]*n
+    B = [sigma(1/a[b]) == 0 for b in range(n)]
+
+    for b, i in enumerate(B):
+        if i == True:
+            L = Li(b, a)
+            e[b] = -a[b] * omega(1/a[b]) * v[b] * L(a[b]) * 1/sigma.derivative()(1/a[b])
+    return e

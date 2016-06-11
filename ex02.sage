@@ -24,4 +24,4 @@ for i in range(n):
 
 y = codeGRS(x, v, a)
 x2 = decodeGRS(y, v, a)
-yp = errTrans(y, 1)
+yp = errTrans(y, 2)
